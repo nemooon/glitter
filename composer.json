@@ -3,17 +3,17 @@
     "description": "E-commerce Architecture for Laravel",
     "keywords": ["laravel", "e-commerce", "ecommerce", "cart", "chackout", "shop", "sales", "sell"],
     "require": {
-        "php": ">=5.6.0"
+        "php": ">=5.6.0",
+        "illuminate/support": "^5.3",
+        "illuminate/console": "^5.3",
+        "illuminate/database": "^5.3"
     },
     "autoload": {
         "psr-4": {
             "Nemooon\\Glitter\\": "src/"
         }
     },
-    "license": [
-        "LGPL-2.1",
-        "GPL-3.0+"
-    ],
+    "license": "GPL-3.0+",
     "authors": [
         {
             "name": "Keisuke Nemoto",
