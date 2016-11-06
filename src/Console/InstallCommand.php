@@ -49,5 +49,8 @@ class InstallCommand extends Command
             'email' => 'n@on-lab.jp',
             'password' => bcrypt('password'),
         ]);
+
+        $customer->stores()->attach($store);
+        $customer->roles()->attach($role);
     }
 }

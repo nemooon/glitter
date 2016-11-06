@@ -35,9 +35,26 @@ class Member extends Authenticatable
         return $this->belongsToMany($this->storeModel, 'store_member');
     }
 
-    public function role()
+    public function roles()
     {
         return $this->belongsToMany($this->roleModel, 'member_role');
     }
 
+
+    /**
+     * ======================
+     * Mutators
+     * ======================
+     */
+
+    public function getActiveStoreAttribute()
+    {
+        return $this->stores()->first();
+    }
+
+    public function getActiveStoreRoleAttribute()
+    {
+        $store = $this->stores()->first();
+        return $this->roles()->where('roles.store_id', $store->getKey())->first();
+    }
 }
