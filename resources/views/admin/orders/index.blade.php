@@ -4,11 +4,11 @@
 
 @section('content')
 <header class="header">
-    <a class="header-title float-md-left" href="{{ route('glitter.admin.orders.index') }}">受注管理</a>
+    <a class="header-title float-md-left" href="{{ route('glitter.admin.orders.index') }}"><i class="fa fa-inbox fa-fw" aria-hidden="true"></i> 受注管理</a>
     <nav class="nav nav-inline float-md-left">
-        <a class="nav-link active" href="{{ route('glitter.admin.orders.index') }}">受注</a>
-        <a class="nav-link" href="{{ route('glitter.admin.orders.index') }}">下書き</a>
-        <a class="nav-link" href="{{ route('glitter.admin.orders.index') }}">返品</a>
+        <a class="nav-link{{ Request::is('admin/orders') ? ' active' : '' }}" href="{{ route('glitter.admin.orders.index') }}">受注</a>
+        <a class="nav-link{{ Request::is('admin/orders/drafts') ? ' active' : '' }}" href="{{ route('glitter.admin.orders.index') }}">下書き</a>
+        <a class="nav-link{{ Request::is('admin/orders/checkouts') ? ' active' : '' }}" href="{{ route('glitter.admin.orders.index') }}">キャンセルされた決済</a>
     </nav>
 </header>
 
@@ -56,7 +56,7 @@
                             <th>顧客</th>
                             <th>支払ステータス</th>
                             <th>発送ステータス</th>
-                            <th>代金</th>
+                            <th class="text-xs-right">代金</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,8 +64,8 @@
                             <td class="chk"><input type="checkbox"></td>
                             <td><a href="#">#1001</a></td>
                             <td>2分前</td>
-                            <td>根本 啓介</td>
-                            <td><span class="status status-paid">支払い済み</span></td>
+                            <td><a href="#">根本 啓介</a></td>
+                            <td><span class="status status-unpaid">未払い</span></td>
                             <td><span class="status status-unfulfilled">未発送</span></td>
                             <td class="text-xs-right">&yen; 3,624</td>
                         </tr>
@@ -73,7 +73,7 @@
                             <td class="chk"><input type="checkbox"></td>
                             <td><a href="#">#1001</a></td>
                             <td>2分前</td>
-                            <td>根本 啓介</td>
+                            <td><a href="#">根本 啓介</a></td>
                             <td><span class="status status-paid">支払い済み</span></td>
                             <td><span class="status status-fulfilled">発送済み</span></td>
                             <td class="text-xs-right">&yen; 3,624</td>
@@ -82,7 +82,7 @@
                             <td class="chk"><input type="checkbox"></td>
                             <td><a href="#">#1001</a></td>
                             <td>2分前</td>
-                            <td>根本 啓介</td>
+                            <td><a href="#">根本 啓介</a></td>
                             <td><span class="status status-paid">支払い済み</span></td>
                             <td><span class="status status-fulfilled">発送済み</span></td>
                             <td class="text-xs-right">&yen; 3,624</td>

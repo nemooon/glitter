@@ -12,7 +12,7 @@ class ForgotPasswordController extends Controller
 
     public function __construct()
     {
-        $this->middleware('glitter.guest:member');
+        // $this->middleware('glitter.guest:member');
     }
 
     public function showLinkRequestForm()

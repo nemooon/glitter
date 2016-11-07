@@ -35,6 +35,12 @@ class Member extends Authenticatable
         return $this->belongsToMany($this->storeModel, 'store_member');
     }
 
+    public function activeStore()
+    {
+        return $this->belongsToMany($this->storeModel, 'store_member')
+            ->withPivot('last_login_at')->orderBy('last_login_at', 'desc');
+    }
+
     public function roles()
     {
         return $this->belongsToMany($this->roleModel, 'member_role');
@@ -49,12 +55,17 @@ class Member extends Authenticatable
 
     public function getActiveStoreAttribute()
     {
-        return $this->stores()->first();
+        return $this->activeStore()->first();
+    }
+
+    public function getSwitchableStoresAttribute()
+    {
+        return $this->stores->except([$this->active_store->getKey()]);
     }
 
     public function getActiveStoreRoleAttribute()
     {
-        $store = $this->stores()->first();
+        $store = $this->active_store;
         return $this->roles()->where('roles.store_id', $store->getKey())->first();
     }
 }

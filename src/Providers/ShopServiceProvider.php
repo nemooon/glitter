@@ -35,7 +35,7 @@ class ShopServiceProvider extends ServiceProvider
             'middleware' => 'web',
             'namespace'  => 'Nemooon\Glitter\Http\Controllers\Account',
             'prefix'     => '/',
-            'as'         => 'glitter.account',
+            'as'         => 'glitter.account.',
         ], function () {
             require __DIR__.'/../../routes/account.php';
         });

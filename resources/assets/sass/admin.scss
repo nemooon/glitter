@@ -1,9 +1,9 @@
 
 $brand-color1: #293031;
 $brand-color2: #3D454F;
-$brand-color3: #0080FF;
+$brand-color3: #367BE0;
 $brand-color4: #FCFCFE;
-$brand-color5: #E5EBEB;
+$brand-color5: #F1F5F7;
 
 // $body-bg: $brand-color5;
 $brand-primary: $brand-color3;
@@ -54,22 +54,25 @@ body {
         font-size: 1rem;
     }
 
-    .fa {
-        margin-right: 0.5rem;
-    }
+    // .fa {
+    //     margin-right: 0.5rem;
+    // }
 }
 
 .drawer-nav {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     width: $drawer-nav-width;
     background: $brand-color2;
-    z-index: $zindex-navbar;
+    z-index: $zindex-navbar-fixed;
 
     @include media-breakpoint-down('sm') {
-        left: -$drawer-nav-width;
+        left: -300px;// -$drawer-nav-width;
+        width: 300px;// $drawer-nav-width;
         transition-timing-function: ease;
         transition-duration: .35s;
         transition-property: left;
@@ -96,6 +99,10 @@ body {
         transition-timing-function: ease;
         transition-duration: .2s;
         transition-property: background;
+        @include media-breakpoint-down('sm') {
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+        }
     }
     .nav-link.active {
         background: $brand-color1;
@@ -130,7 +137,21 @@ body {
         font-size: 0.875rem;
         font-style: normal;
         text-align: center;
+        @include media-breakpoint-down('sm') {
+            height: 1.5rem;
+            line-height: 1.5rem;
+        }
     }
+}
+
+
+.drawer-nav-store {
+    flex: 0 0 0%;
+}
+.drawer-nav-content {
+    flex: 1 0 0%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .store-menu {
@@ -151,12 +172,20 @@ body {
         text-decoration: none;
     }
 
+    > .fa {
+        line-height: 1.3125rem;
+    }
+
+    strong {
+        color: #fff;
+    }
+
     small {
         font-size: 0.75rem;
     }
 
     & ~ .dropdown-menu {
-        margin-top: -0.25rem;
+        margin-top: -1.625rem;
         left: 0.5rem;
         font-size: 0.875rem;
         a {
@@ -225,8 +254,8 @@ body {
 
 .header-title {
     margin-right: 1.5rem;
-    padding: 0.325rem 0;
-    font-size: 1.125rem;
+    padding: 0.375rem 0;
+    font-size: 1rem;
 
     &, &:hover, &:active, &:focus {
         color: $body-color;
@@ -250,10 +279,10 @@ body {
 
 .content {
     padding: 1rem;
-    @include media-breakpoint-down('sm') {
-        padding-left: 0;
-        padding-right: 0;
-    }
+    // @include media-breakpoint-down('sm') {
+    //     padding-left: 0;
+    //     padding-right: 0;
+    // }
 }
 
 .list-card {
@@ -278,6 +307,8 @@ body {
     // }
 
     @include media-breakpoint-down('sm') {
+        margin-left: -1rem;
+        margin-right: -1rem;
         border-left: none;
         border-right: none;
         border-radius: 0;
@@ -290,15 +321,15 @@ body {
 }
 
 .table-data {
-    table-layout: fixed;
-    word-wrap: break-word;
     border-collapse: separate;
     border-spacing: 0;
+    word-wrap: break-word;
 
     th,
     td {
         vertical-align: middle;
         font-size: 0.875rem;
+        white-space: nowrap;
     }
 
     small {
@@ -342,12 +373,15 @@ body {
 .status {
     display: inline-block;
     background: $gray-lighter;
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 0.25rem 0.5rem;
     margin: -0.25rem 0;
 }
 .status-paid {
     background: mix($brand-success, #fff, 10%);
+}
+.status-unpaid {
+    background: mix($gray, #fff, 10%);
 }
 .status-fulfilled {
     background: mix($brand-success, #fff, 10%);

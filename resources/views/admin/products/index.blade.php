@@ -4,12 +4,12 @@
 
 @section('content')
 <header class="header">
-    <div class="header-title float-md-left">商品管理</div>
+    <a class="header-title float-md-left" href="{{ route('glitter.admin.products.index') }}"><i class="fa fa-tag fa-fw" aria-hidden="true"></i> 商品管理</a>
     <nav class="nav nav-inline float-md-left">
-        <a class="nav-link active" href="#">商品</a>
-        <a class="nav-link" href="#">入荷</a>
-        <a class="nav-link" href="#">在庫</a>
-        <a class="nav-link" href="#">コレクション</a>
+        <a class="nav-link{{ Request::is('admin/products') ? ' active' : '' }}" href="{{ route('glitter.admin.products.index') }}">商品</a>
+        <a class="nav-link{{ Request::is('admin/products/transfers') ? ' active' : '' }}" href="{{ route('glitter.admin.products.index') }}">入荷</a>
+        <a class="nav-link{{ Request::is('admin/products/inventory') ? ' active' : '' }}" href="{{ route('glitter.admin.products.index') }}">在庫</a>
+        <a class="nav-link{{ Request::is('admin/products/collections') ? ' active' : '' }}" href="{{ route('glitter.admin.products.index') }}">コレクション</a>
     </nav>
 </header>
 
@@ -61,7 +61,7 @@
                         <tr>
                             <th class="chk"><input type="checkbox"></th>
                             <th class="media"></th>
-                            <th>商品名</th>
+                            <th>名称</th>
                             <th>在庫</th>
                             <th>タイプ</th>
                             <th>ベンダ</th>
@@ -71,104 +71,104 @@
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
+                            <td class="name"><a href="#">Highday Tee</a></td>
                             <td>10個</td>
+                            <td>T-Shirt</td>
+                            <td>ONLAB</td>
+                        </tr>
+                        <tr>
+                            <td class="chk"><input type="checkbox"></td>
+                            <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
-                            <td>-</td>
-                            <td>My Store</td>
-                        </tr>
-                        <tr>
-                            <td class="chk"><input type="checkbox"></td>
-                            <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
-                            <td class="name"><a href="#">T-Shirt</a><br><small class="text-muted">Category</small></td>
-                            <td>10個</td>
+                            <td class="name"><a href="#">My Product</a><br><small class="text-muted">Any description</small></td>
+                            <td><span class="text-muted">N/A</span></td>
                             <td>-</td>
                             <td>My Store</td>
                         </tr>

@@ -4,9 +4,9 @@
 
 @section('content')
 <header class="header">
-    <div class="header-title float-md-left">顧客管理</div>
+    <a class="header-title float-md-left" href="{{ route('glitter.admin.customers.index') }}"><i class="fa fa-users fa-fw" aria-hidden="true"></i> 顧客管理</a>
     <nav class="nav nav-inline float-md-left">
-        <a class="nav-link active" href="#">顧客リスト</a>
+        <a class="nav-link{{ Request::is('admin/customers') ? ' active' : '' }}" href="{{ route('glitter.admin.customers.index') }}">顧客リスト</a>
     </nav>
 </header>
 
@@ -33,10 +33,10 @@
                     <a class="nav-link" href="#">メルマガ購読</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">リピーター</a>
+                    <a class="nav-link" href="#">リピート客</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">クレーマー</a>
+                    <a class="nav-link" href="#">見込み客</a>
                 </li>
             </ul>
         </div>
@@ -51,9 +51,9 @@
                             <th class="chk"><input type="checkbox"></th>
                             <th>氏名</th>
                             <th>所在地</th>
-                            <th>受注回数</th>
-                            <th>最後の受注</th>
-                            <th>総金額</th>
+                            <th class="text-xs-center">受注回数</th>
+                            <th class="text-xs-center">最後の受注</th>
+                            <th class="text-xs-right">総支出</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,24 +61,24 @@
                             <td class="chk"><input type="checkbox"></td>
                             <td><a href="#">根本 啓介</a></td>
                             <td>東京都</td>
-                            <td>0</td>
-                            <td>-</td>
+                            <td class="text-xs-center">1</td>
+                            <td class="text-xs-center"><a href="#">#1001</a></td>
                             <td class="text-xs-right">&yen; {{ number_format(1000000) }}</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td><a href="#">根本 啓介</a></td>
                             <td>東京都</td>
-                            <td>0</td>
-                            <td>-</td>
+                            <td class="text-xs-center">0</td>
+                            <td class="text-xs-center">-</td>
                             <td class="text-xs-right">&yen; {{ number_format(1000000) }}</td>
                         </tr>
                         <tr>
                             <td class="chk"><input type="checkbox"></td>
                             <td><a href="#">根本 啓介</a></td>
                             <td>東京都</td>
-                            <td>0</td>
-                            <td>-</td>
+                            <td class="text-xs-center">0</td>
+                            <td class="text-xs-center">-</td>
                             <td class="text-xs-right">&yen; {{ number_format(1000000) }}</td>
                         </tr>
                     </tbody>

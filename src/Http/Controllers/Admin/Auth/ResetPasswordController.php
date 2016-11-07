@@ -20,7 +20,7 @@ class ResetPasswordController extends Controller
     {
         $this->auth = $auth;
 
-        $this->middleware('glitter.guest:member');
+        // $this->middleware('glitter.guest:member');
     }
 
     public function showResetForm(Request $request, $token = null)
