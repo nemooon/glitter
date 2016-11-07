@@ -1,0 +1,9 @@
+{
+  "name": "glitter",
+  "version": "1.0.0",
+  "description": "Glitter resources",
+  "main": "index.js",
+  "private": true,
+  "author": "Keisuke Nemoto <n@on-lab.jp>",
+  "license": "MIT"
+}

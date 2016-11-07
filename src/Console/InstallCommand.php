@@ -50,7 +50,7 @@ class InstallCommand extends Command
             'password' => bcrypt('password'),
         ]);
 
-        $customer->stores()->attach($store);
-        $customer->roles()->attach($role);
+        $member->stores()->attach($store);
+        $member->roles()->attach($role);
     }
 }

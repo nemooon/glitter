@@ -1,0 +1,357 @@
+
+$brand-color1: #293031;
+$brand-color2: #3D454F;
+$brand-color3: #0080FF;
+$brand-color4: #FCFCFE;
+$brand-color5: #E5EBEB;
+
+// $body-bg: $brand-color5;
+$brand-primary: $brand-color3;
+
+$header-nav-height: 50px;
+$drawer-nav-width: 184px;
+
+@import "node_modules/bootstrap/scss/bootstrap-flex";
+
+@import "node_modules/font-awesome/scss/font-awesome";
+
+body {
+    background: $brand-color5;
+}
+
+// .admin-screen {
+//     min-height: 100vh;
+// }
+
+.guest-section {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    min-height: 500px;
+    overflow-y: auto;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.guest-content {
+    flex: 0 0 0%;
+    min-width: 640px;
+    @include media-breakpoint-down('sm') {
+        padding: 1.5rem 1rem;
+        min-width: 100%;
+        align-self: flex-start;
+    }
+}
+
+.header-nav {
+    height: $header-nav-height;
+    // padding: 0 1rem;
+    background: $brand-color2;
+    font-size: 0.875rem;
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .fa {
+        margin-right: 0.5rem;
+    }
+}
+
+.drawer-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $drawer-nav-width;
+    background: $brand-color2;
+    z-index: $zindex-navbar;
+
+    @include media-breakpoint-down('sm') {
+        left: -$drawer-nav-width;
+        transition-timing-function: ease;
+        transition-duration: .35s;
+        transition-property: left;
+        &.in {
+            left: 0;
+        }
+        .header-nav ~ & {
+            top: $header-nav-height;
+        }
+    }
+
+    a { color: #dadada; }
+    a:hover { color: #fafafe; }
+    a:active, a:focus { color: #ababab; }
+
+    .nav {
+        padding: 0.5rem 0;
+    }
+    .nav-link {
+        display: block;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        outline: none;
+        transition-timing-function: ease;
+        transition-duration: .2s;
+        transition-property: background;
+    }
+    .nav-link.active {
+        background: $brand-color1;
+        color: #fafafe;
+    }
+    .nav-link:hover {
+        background: $brand-color1;
+    }
+    .nav-link:active, .nav-link:focus {
+        background: $brand-color1;
+        color: #dadada;
+    }
+
+    .badge {
+        float: right;
+        width: 1.25rem;
+        height: 1.25rem;
+        line-height: 1.25rem;
+        border-radius: 100%;
+        background: $brand-primary;
+        color: #fff;
+        font-size: 0.6875rem;
+        font-style: normal;
+        text-align: center;
+    }
+
+    .nofity {
+        float: right;
+        height: 1.25rem;
+        line-height: 1.25rem;
+        color: $brand-primary;
+        font-size: 0.875rem;
+        font-style: normal;
+        text-align: center;
+    }
+}
+
+.store-menu {
+    display: block;
+    padding: 1rem 1rem 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+
+    transition-timing-function: ease;
+    transition-duration: .2s;
+    transition-property: background;
+
+    .open > &, &:hover {
+        background: $brand-color1;
+    }
+
+    &, &:hover, &:active, &:focus {
+        text-decoration: none;
+    }
+
+    small {
+        font-size: 0.75rem;
+    }
+
+    & ~ .dropdown-menu {
+        margin-top: -0.25rem;
+        left: 0.5rem;
+        font-size: 0.875rem;
+        a {
+            color: $body-color;
+            text-decoration: none;
+            &.disabled {
+                color: $gray-light;
+            }
+        }
+    }
+}
+
+.user-banner {
+    color: $body-color;
+    .user-name {
+        margin-bottom: 0.25rem;
+    }
+    .user-role {
+        font-size: 0.75rem;
+        color: $gray-light;
+    }
+}
+
+.main-section {
+    max-width: 3000px;
+    padding-bottom: 100px;
+
+    @include media-breakpoint-up('md') {
+        .drawer-nav ~ & {
+            padding-left: $drawer-nav-width;
+        }
+    }
+
+    @include media-breakpoint-down('sm') {
+        .header-nav ~ &,
+        .header-nav ~ .drawer-nav ~ & {
+            padding-top: $header-nav-height;
+        }
+    }
+}
+
+
+
+
+
+.header {
+    padding: $navbar-padding-y $navbar-padding-x;
+    background: $brand-color4;
+    // box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+    @include clearfix;
+
+    .nav {
+        padding: 0.45rem 0;
+        font-size: 0.875rem;
+        .nav-link {
+            color: $body-color;
+            &.active {
+                font-weight: bold;
+            }
+            &.disabled {
+                color: $gray-lighter;
+            }
+        }
+    }
+}
+
+.header-title {
+    margin-right: 1.5rem;
+    padding: 0.325rem 0;
+    font-size: 1.125rem;
+
+    &, &:hover, &:active, &:focus {
+        color: $body-color;
+        text-decoration: none;
+    }
+}
+
+.action-nav {
+    position: fixed;
+    left: $drawer-nav-width;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    background: transparent;
+    z-index: $zindex-navbar;
+
+    @include media-breakpoint-down('sm') {
+        left: 0;
+    }
+}
+
+.content {
+    padding: 1rem;
+    @include media-breakpoint-down('sm') {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.list-card {
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    .card-header .nav {
+        font-size: 0.875rem;
+    }
+    .card-header .nav-link {
+        color: $gray-light;
+        &:hover, &.active {
+            color: $body-color;
+        }
+    }
+
+    // .card-table {
+    //     padding-left: 0.625rem;
+    //     padding-right: 0.625rem;
+    //     overflow: auto;
+    // }
+
+    @include media-breakpoint-down('sm') {
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+
+        .card-block {
+            padding-left: 0.625rem;
+            padding-right: 0.625rem;
+        }
+    }
+}
+
+.table-data {
+    table-layout: fixed;
+    word-wrap: break-word;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    th,
+    td {
+        vertical-align: middle;
+        font-size: 0.875rem;
+    }
+
+    small {
+        font-size: 0.75rem;
+    }
+
+    thead th {
+        border-top: 0;
+        border-bottom: 0;
+        font-weight: normal;
+    }
+
+    tbody tr {
+        @include hover {
+            background-color: #F1FAFF;
+            & > td, & + tr > td {
+                border-color: #CBDFEA;
+            }
+        }
+    }
+
+    .chk {
+        width: 3rem;
+        text-align: center;
+    }
+
+    .media {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        text-align: center;
+    }
+    th.media {
+        width: calc(1.5rem + 50px);
+    }
+
+    .name {
+        // width: 100%;
+    }
+}
+
+.status {
+    display: inline-block;
+    background: $gray-lighter;
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+    margin: -0.25rem 0;
+}
+.status-paid {
+    background: mix($brand-success, #fff, 10%);
+}
+.status-fulfilled {
+    background: mix($brand-success, #fff, 10%);
+}
+.status-unfulfilled {
+    background: mix($brand-danger, #fff, 10%);
+}

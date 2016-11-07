@@ -27,21 +27,21 @@ window.Laravel = <?php echo json_encode([
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::guard('member')->user()->name }}</a>
             <div class="dropdown-menu dropdown-menu-right">
                 <h4 class="dropdown-header">
-                    <div class="clearfix">
+                    <div class="user-banner clearfix">
                         <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::guard('member')->user()->email)) }}?s=32" class="rounded float-xs-left" style="margin-right: 0.5rem;">
-                        {{ Auth::guard('member')->user()->name }}<br>
-                        <small>{{ Auth::guard('member')->user()->activeStoreRole->name }}</small>
+                        <div class="user-name">{{ Auth::guard('member')->user()->name }}</div>
+                        <div class="user-role">{{ Auth::guard('member')->user()->activeStoreRole->name }}</div>
                     </div>
                 </h4>
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Security</a>
+                <a class="dropdown-item disabled" href="#">プロフィール</a>
+                <a class="dropdown-item disabled" href="#">環境設定</a>
+                <a class="dropdown-item disabled" href="#">セキュリティ</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Switch to $store->name</a>
-                <a class="dropdown-item" href="#">Switch to $store->name</a>
-                <a class="dropdown-item" href="#">Switch to $store->name</a>
+                <a class="dropdown-item disabled" href="#">$store->name へ切り替える</a>
+                <a class="dropdown-item disabled" href="#">Switch to $store->name</a>
+                <a class="dropdown-item disabled" href="#">Switch to $store->name</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#logout">Logout</a>
+                <a class="dropdown-item" href="#logout">ログアウト</a>
             </div>
         </li>
     </ul>
@@ -49,65 +49,66 @@ window.Laravel = <?php echo json_encode([
 
 <nav id="drawer" class="drawer-nav">
     <div class="dropdown">
-        <a href="#" class="store-menu dropdown-toggle hidden-sm-down" data-toggle="dropdown">
+        <a href="#" class="store-menu hidden-sm-down" data-toggle="dropdown">
+            <i class="fa fa-angle-down float-xs-right mt-2" aria-hidden="true"></i>
             <strong>{{ Auth::guard('member')->user()->activeStore->name }}</strong><br>
             <small>{{ Auth::guard('member')->user()->name }}</small>
         </a>
         <div class="dropdown-menu">
             <h4 class="dropdown-header">
-                <div class="clearfix">
+                <div class="user-banner clearfix">
                     <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(Auth::guard('member')->user()->email)) }}?s=32" class="rounded float-xs-left" style="margin-right: 0.5rem;">
-                    {{ Auth::guard('member')->user()->name }}<br>
-                    <small>{{ Auth::guard('member')->user()->activeStoreRole->name }}</small>
+                    <div class="user-name">{{ Auth::guard('member')->user()->name }}</div>
+                    <div class="user-role">{{ Auth::guard('member')->user()->activeStoreRole->name }}</div>
                 </div>
             </h4>
-            <a class="dropdown-item" href="#">Profile</a>
-            <a class="dropdown-item" href="#">Settings</a>
-            <a class="dropdown-item" href="#">Security</a>
+            <a class="dropdown-item disabled" href="#">プロフィール</a>
+            <a class="dropdown-item disabled" href="#">環境設定</a>
+            <a class="dropdown-item disabled" href="#">セキュリティ</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Switch to $store->name</a>
-            <a class="dropdown-item" href="#">Switch to $store->name</a>
-            <a class="dropdown-item" href="#">Switch to $store->name</a>
+            <a class="dropdown-item disabled" href="#">$store->name へ切り替える</a>
+            <a class="dropdown-item disabled" href="#">Switch to $store->name</a>
+            <a class="dropdown-item disabled" href="#">Switch to $store->name</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#logout">Logout</a>
+            <a class="dropdown-item" href="#logout">ログアウト</a>
         </div>
     </div>
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link{{ Request::is('admin') ? ' active' : '' }}" href="{{ route('glitter.admin.index') }}">ホーム</a>
+            <a class="nav-link{{ Request::is('admin') ? ' active' : '' }}" href="{{ route('glitter.admin.index') }}"><i class="fa fa-home fa-fw" aria-hidden="true"></i> ホーム</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link{{ Request::is('admin/orders*') ? ' active' : '' }}" href="{{ route('glitter.admin.orders.index') }}">受注管理<i class="nofity fa fa-circle"></i></a>
+            <a class="nav-link{{ Request::is('admin/orders*') ? ' active' : '' }}" href="{{ route('glitter.admin.orders.index') }}"><i class="fa fa-inbox fa-fw" aria-hidden="true"></i> 受注管理<i class="nofity fa fa-circle"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link{{ Request::is('admin/products*') ? ' active' : '' }}" href="{{ route('glitter.admin.products.index') }}">商品管理</a>
+            <a class="nav-link{{ Request::is('admin/products*') ? ' active' : '' }}" href="{{ route('glitter.admin.products.index') }}"><i class="fa fa-tag fa-fw" aria-hidden="true"></i> 商品管理</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link{{ Request::is('admin/customers*') ? ' active' : '' }}" href="{{ route('glitter.admin.customers.index') }}">顧客管理</a>
+            <a class="nav-link{{ Request::is('admin/customers*') ? ' active' : '' }}" href="{{ route('glitter.admin.customers.index') }}"><i class="fa fa-users fa-fw" aria-hidden="true"></i> 顧客管理</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link disabled" href="#">売上分析</a>
+            <a class="nav-link disabled" href="#"><i class="fa fa-bar-chart fa-fw" aria-hidden="true"></i> 売上分析</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link disabled" href="#">値引管理</a>
-        </li>
-    </ul>
-    {{-- <hr> --}}
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" href="#">オンラインストア</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#">Syn Cart</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#">WordPress</a>
+            <a class="nav-link disabled" href="#"><i class="fa fa-scissors fa-fw" aria-hidden="true"></i> 値引管理</a>
         </li>
     </ul>
     {{-- <hr> --}}
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="#">ストア設定</a>
+            <a class="nav-link disabled" href="#"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> オンラインストア</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#"><i class="fa fa-shopping-cart fa-fw" aria-hidden="true"></i> Syn Cart</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#"><i class="fa fa-wordpress fa-fw" aria-hidden="true"></i> WordPress</a>
+        </li>
+    </ul>
+    {{-- <hr> --}}
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> ストア設定</a>
         </li>
     </ul>
 </nav>{{-- /.drawer-nav --}}
