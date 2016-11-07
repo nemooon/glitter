@@ -19,6 +19,7 @@ class CreateStoreMemberTable extends Migration
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
             $table->integer('member_id')->unsigned();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->timestamp('last_login_at');
         });
     }
 
