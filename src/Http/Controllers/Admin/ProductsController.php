@@ -19,8 +19,9 @@ class ProductsController extends Controller
     public function index(Request $request)
     {
         $me = $this->guard()->user();
-        $products = [];
-        return view('glitter::admin.products.index', compact('products'));
+        $store = $me->active_store;
+        $products = $store->products;
+        return view('glitter::admin.products.index', compact('store', 'products'));
     }
 
     protected function guard()

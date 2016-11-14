@@ -5,7 +5,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>@yield('title') - {{ config('admin.name', 'Glitter Admin') }}</title>
-<link rel="stylesheet" type="text/css" href="{{ asset('/css/admin.css') }}" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/glitter-admin.css') }}" media="all" />
 @stack('styles')
 <script>
 window.Laravel = <?php echo json_encode([

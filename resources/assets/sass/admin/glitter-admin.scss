@@ -1,0 +1,25 @@
+
+@import "variables";
+@import "node_modules/bootstrap/scss/bootstrap-flex";
+@import "node_modules/font-awesome/scss/font-awesome";
+@import "sidebar";
+@import "header";
+@import "main";
+@import "guest";
+@import "card";
+@import "table";
+@import "misc";
+
+.action-nav {
+    position: fixed;
+    left: $drawer-nav-width;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    background: transparent;
+    z-index: $zindex-navbar;
+
+    @include media-breakpoint-down('sm') {
+        left: 0;
+    }
+}

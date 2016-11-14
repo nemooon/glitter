@@ -1,0 +1,21 @@
+
+.guest-section {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    min-height: 500px;
+    overflow-y: auto;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.guest-content {
+    flex: 0 0 0%;
+    min-width: 640px;
+    @include media-breakpoint-down('sm') {
+        padding: 1.5rem 1rem;
+        min-width: 100%;
+        align-self: flex-start;
+    }
+}

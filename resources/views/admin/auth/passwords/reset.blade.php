@@ -1,4 +1,4 @@
-@extends('glitter::layouts.admin-guest')
+@extends('glitter::admin.layouts.admin-guest')
 
 @section('title', 'Reset Password')
 

@@ -1,0 +1,192 @@
+.header-nav {
+    height: $header-nav-height;
+    background: $brand-color2;
+    font-size: 0.875rem;
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+}
+
+.drawer-nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $drawer-nav-width;
+    background: $drawer-nav-link-bg;
+    z-index: $zindex-navbar-fixed;
+
+    @include media-breakpoint-down('sm') {
+        left: -300px;// -$drawer-nav-width;
+        width: 300px;// $drawer-nav-width;
+        transition-timing-function: ease;
+        transition-duration: .35s;
+        transition-property: left;
+        &.in {
+            left: 0;
+        }
+        .header-nav ~ & {
+            top: $header-nav-height;
+        }
+    }
+
+    a {
+        color: $drawer-nav-link-color;
+        @include hover-focus-active {
+            color: $drawer-nav-link-hover-color;
+        }
+    }
+
+    .nav {
+        padding: 0.3125rem 0;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-link {
+        display: block;
+        margin: 0;
+        padding: 0.5rem 0.875rem;
+        color: #dadada;
+        font-size: 0.875rem;
+        outline: none;
+        cursor: pointer;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+
+        @include media-breakpoint-down('sm') {
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+        }
+
+        .fa {
+            margin-right: 0.5rem;
+            font-size: 1rem;
+            color: $gray-light;
+        }
+    }
+    .nav-link.active {
+        background: $drawer-nav-link-active-bg;
+        color: $drawer-nav-link-active-color;
+        .fa {
+            color: $gray-lighter;
+        }
+    }
+    .nav-link.disabled {
+        text-shadow: none;
+        opacity: 0.5;
+        @include plain-hover-focus {
+            background: inherit;
+            color: $nav-disabled-link-color;
+        }
+        .fa {
+            color: $nav-disabled-link-color;
+        }
+    }
+
+    .badge {
+        float: right;
+        padding: 0.3125rem 0.25rem;
+        min-width: 1rem;
+        height: 1.3125rem;
+        line-height: 1;
+        border-radius: 0.25rem;
+        background: $brand-primary;
+        color: #fff;
+        font-size: 0.6875rem;
+        font-style: normal;
+        text-align: center;
+        @include media-breakpoint-down('sm') {
+            height: 1.5rem;
+            padding: 0.34375rem 0.3rem;
+            font-size: 0.8125rem;
+        }
+    }
+
+    .nofity {
+        float: right;
+        height: 1.25rem;
+        line-height: 1.25rem;
+        color: $brand-primary;
+        font-size: 0.875rem;
+        font-style: normal;
+        text-align: center;
+        @include media-breakpoint-down('sm') {
+            height: 1.5rem;
+            line-height: 1.5rem;
+        }
+    }
+}
+
+
+.drawer-nav-store {
+    flex: 0 0 0%;
+}
+.drawer-nav-content {
+    flex: 1 0 0%;
+    padding-bottom: 2rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.store-menu {
+    display: block;
+    padding: 1rem 1rem 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+
+    transition-timing-function: ease;
+    transition-duration: .2s;
+    transition-property: background;
+
+    .open > &, &:hover {
+        background: $drawer-nav-link-hover-bg;
+    }
+
+    &, &:hover, &:active, &:focus {
+        text-decoration: none;
+    }
+
+    > .fa {
+        line-height: 1.3125rem;
+    }
+
+    .store-name {
+        color: #fff;
+    }
+
+    small {
+        font-size: 0.75rem;
+        .fa {
+            margin-right: 0.25rem;
+        }
+    }
+
+    & ~ .dropdown-menu {
+        margin-top: -1.625rem;
+        left: 0.5rem;
+        font-size: 0.875rem;
+        a {
+            color: $body-color;
+            text-decoration: none;
+            &.disabled {
+                color: $gray-light;
+            }
+        }
+    }
+}
+
+.user-banner {
+    color: $body-color;
+    .user-name {
+        margin-bottom: 0.25rem;
+    }
+    .user-role {
+        font-size: 0.75rem;
+        color: $gray-light;
+    }
+}

@@ -1,13 +1,10 @@
-@extends('glitter::layouts.admin')
+@extends('glitter::admin.layouts.admin')
 
-@section('title', 'Admin')
+@section('title', 'ホーム')
 
-@section('content')
-<header class="header">
-    <div class="header-title float-md-left"><i class="fa fa-home fa-fw" aria-hidden="true"></i> ホーム</div>
-</header>
 
-<div class="content">
+@section('main')
+<main class="main-section">
 Hi {{ Auth::guard('member')->user()->name }}. Welcome to Glitter Admin!
-</div>
+</main>
 @endsection

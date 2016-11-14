@@ -28,11 +28,18 @@ class Store extends Model
 
     protected $memberModel = Member::class;
 
+    protected $productModel = Product::class;
+
     protected $pageModel = Page::class;
 
     public function members()
     {
         return $this->belongsToMany($this->memberModel, 'store_member');
+    }
+
+    public function products()
+    {
+        return $this->hasMany($this->productModel);
     }
 
     public function pages()

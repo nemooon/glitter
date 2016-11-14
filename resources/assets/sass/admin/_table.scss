@@ -1,0 +1,50 @@
+
+.table-data {
+    border-collapse: separate;
+    border-spacing: 0;
+    word-wrap: break-word;
+
+    th,
+    td {
+        vertical-align: middle;
+        font-size: 0.875rem;
+        white-space: nowrap;
+    }
+
+    small {
+        font-size: 0.75rem;
+    }
+
+    thead th {
+        border-top: 0;
+        border-bottom: 0;
+        font-weight: normal;
+    }
+
+    tbody tr {
+        @include hover {
+            background-color: #F1FAFF;
+            & > td, & + tr > td {
+                border-color: #CBDFEA;
+            }
+        }
+    }
+
+    .chk {
+        width: 3rem;
+        text-align: center;
+    }
+
+    .media {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        text-align: center;
+    }
+    th.media {
+        width: calc(1.5rem + 50px);
+    }
+
+    .name {
+        // width: 100%;
+    }
+}

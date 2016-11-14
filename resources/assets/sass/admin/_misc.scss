@@ -1,0 +1,20 @@
+
+.status {
+    display: inline-block;
+    background: $gray-lighter;
+    border-radius: 3px;
+    padding: 0.25rem 0.5rem;
+    margin: -0.25rem 0;
+}
+.status-paid {
+    background: mix($brand-success, #fff, 10%);
+}
+.status-unpaid {
+    background: mix($gray, #fff, 10%);
+}
+.status-fulfilled {
+    background: mix($brand-success, #fff, 10%);
+}
+.status-unfulfilled {
+    background: mix($brand-danger, #fff, 10%);
+}

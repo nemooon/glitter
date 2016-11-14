@@ -1,0 +1,23 @@
+
+$brand-color1: #293031;
+$brand-color2: #3D454F;
+$brand-color3: #367BE0;
+$brand-color4: #FCFCFE;
+$brand-color5: #F1F5F7;
+
+$body-bg: $brand-color5;
+$brand-primary: $brand-color3;
+
+$header-nav-height: 50px;
+$header-section-height: 3rem;
+$nav-wrapper-height: 37px;
+
+$drawer-nav-width: 220px;
+$drawer-nav-link-color: #dadada;
+$drawer-nav-link-bg: $brand-color2;
+// $drawer-nav-link-open-color: #fafafa;
+// $drawer-nav-link-open-bg: darken($brand-color2, 3%);
+$drawer-nav-link-hover-color: #fafafa;
+$drawer-nav-link-hover-bg: darken($brand-color2, 3%);
+$drawer-nav-link-active-color: #ffffff;
+$drawer-nav-link-active-bg: darken($brand-color2, 3%);

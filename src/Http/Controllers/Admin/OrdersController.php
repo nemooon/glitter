@@ -19,7 +19,7 @@ class OrdersController extends Controller
     public function index(Request $request)
     {
         $me = $this->guard()->user();
-        $orders = [];
+        $orders = $me->active_store->orders;
         return view('glitter::admin.orders.index', compact('orders'));
     }
 
