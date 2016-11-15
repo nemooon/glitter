@@ -65,7 +65,6 @@ class Member extends Authenticatable
 
     public function getActiveStoreRoleAttribute()
     {
-        $store = $this->active_store;
-        return $this->roles()->where('roles.store_id', $store->getKey())->first();
+        return $this->roles()->where('roles.store_id', $this->active_store->getKey())->first();
     }
 }

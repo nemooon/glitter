@@ -77,7 +77,7 @@ window.Laravel = <?php echo json_encode([
         </ul>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link disabled" href="#"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>ストア設定</a>
+                <a class="nav-link{{ Request::is('admin/settings*') ? ' active' : '' }}" href="{{ route('glitter.admin.settings.index') }}"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>ストア設定</a>
             </li>
         </ul>
     </div>
@@ -105,7 +105,7 @@ window.Laravel = <?php echo json_encode([
 </div>{{-- /.admin-screen --}}
 @include('glitter::admin.partials.logout-form')
 {{-- Scripts --}}
-<script src="{{ asset('/js/admin.js') }}"></script>
+<script src="{{ asset('/js/glitter-admin.js') }}"></script>
 @yield('scripts')
 
 </body>

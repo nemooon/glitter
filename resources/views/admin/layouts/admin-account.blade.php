@@ -30,6 +30,7 @@ window.Laravel = <?php echo json_encode([
         </div>
     </div>
     <hr>
+@section('main')
     <div class="row">
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
             <div class="list-group mb-1">
@@ -41,12 +42,13 @@ window.Laravel = <?php echo json_encode([
             @yield('content')
         </div>
     </div>
+@show
 </div>
 
 </div>{{-- /.admin-screen --}}
 @include('glitter::admin.partials.logout-form')
 {{-- Scripts --}}
-<script src="{{ asset('/js/admin.js') }}"></script>
+<script src="{{ asset('/js/glitter-admin.js') }}"></script>
 @yield('scripts')
 
 </body>

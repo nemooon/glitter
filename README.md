@@ -67,8 +67,8 @@ gulpfile.jsに以下をば、
     mix.copy('vendor/nemooon/glitter/resources/assets/sass', 'resources/assets/sass/glitter')
        .copy('vendor/nemooon/glitter/resources/assets/js', 'resources/assets/js/glitter')
        .copy('node_modules/font-awesome/fonts', 'public/fonts')
-       .sass('glitter/admin.scss')
-       .webpack('glitter/admin.js');
+       .sass('glitter/admin/glitter-admin.scss')
+       .webpack('glitter/admin/glitter-admin.js');
 ```
 
 ビルド！

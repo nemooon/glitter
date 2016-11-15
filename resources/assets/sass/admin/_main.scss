@@ -39,9 +39,6 @@
 
     @include media-breakpoint-down('sm') {
         position: static;
-        // .header-nav ~ .main-section & {
-        //     top: calc(#{$header-section-height} + #{$header-nav-height});
-        // }
     }
 
     .nav {
@@ -63,20 +60,18 @@
         display: block;
         padding: $nav-link-padding;
         border-bottom: 2px solid transparent;
-
-        @include plain-hover-focus {
-            color: $gray;
-            border-color: transparent;
-        }
+        color: $gray;
 
         @include hover-focus {
             color: $gray-dark;
-            border-color: $gray-lighter;
+            background-color: $gray-lighter;
+            border-color: grayscale($brand-primary);
         }
 
         &.disabled {
             @include plain-hover-focus {
                 color: $nav-disabled-link-color;
+                background-color: inherit;
                 border-color: transparent;
             }
         }

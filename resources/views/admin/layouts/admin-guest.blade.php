@@ -30,7 +30,7 @@ window.Laravel = <?php echo json_encode([
 @endif
 
 <!-- Scripts -->
-<script src="{{ asset('/js/admin.js') }}"></script>
+<script src="{{ asset('/js/glitter-admin.js') }}"></script>
 
 @yield('scripts')
 
