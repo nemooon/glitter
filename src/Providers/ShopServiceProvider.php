@@ -21,7 +21,7 @@ class ShopServiceProvider extends ServiceProvider
     {
         Route::group([
             'middleware' => 'web',
-            'namespace'  => 'Nemooon\Glitter\Http\Controllers',
+            'namespace'  => 'Nemooon\Glitter\Application\Controllers',
             'prefix'     => '/',
             'as'         => 'glitter.',
         ], function () {
@@ -33,7 +33,7 @@ class ShopServiceProvider extends ServiceProvider
     {
         Route::group([
             'middleware' => 'web',
-            'namespace'  => 'Nemooon\Glitter\Http\Controllers\Account',
+            'namespace'  => 'Nemooon\Glitter\Application\Controllers\Account',
             'prefix'     => '/',
             'as'         => 'glitter.account.',
         ], function () {

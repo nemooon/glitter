@@ -15,14 +15,14 @@ class AdminServiceProvider extends ServiceProvider
             $this->mapAdminRoutes();
         }
 
-        $router->middleware('glitter.guest', \Nemooon\Glitter\Http\Middleware\RedirectIfAuthenticated::class);
+        $router->middleware('glitter.guest', \Nemooon\Glitter\Application\Middleware\RedirectIfAuthenticated::class);
     }
 
     protected function mapAdminRoutes()
     {
         Route::group([
             'middleware' => 'web',
-            'namespace'  => 'Nemooon\Glitter\Http\Controllers\Admin',
+            'namespace'  => 'Nemooon\Glitter\Application\Controllers\Admin',
             'prefix'     => 'admin',
             'as'         => 'glitter.admin.',
         ], function () {

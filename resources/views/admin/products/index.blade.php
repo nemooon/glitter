@@ -75,7 +75,7 @@
 @foreach($products as $product)
                     <tr>
                         <td class="chk"><input type="checkbox"></td>
-                        <td class="media"><img src="http://placehold.jp/50x50.png" class="rounded"></td>
+                        <td class="media"><img src="{{ $product->thumbnail() ?: 'http://placehold.jp/50x50.png?text=thumb' }}" width="50" height="50" class="rounded"></td>
                         <td class="name"><a href="#">{{ $product->name }}</a></td>
                         <td>0</td>
                         <td>T-Shirt</td>
