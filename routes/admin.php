@@ -3,7 +3,7 @@
 Auth::routes();
 
 Route::group([
-    'middleware'  => 'auth:member',
+    'middleware'  => ['auth:member', 'glitter.admin'],
 ], function () {
 
     Route::get('/', function () {
@@ -23,11 +23,13 @@ Route::group([
     Route::get('switch/{id}', function ($store) {
         $member = Auth::guard('member')->user();
         $store = $member->switchable_stores->where('slug', $store)->first();
+        $message = [];
         if ($store) {
             $last_login_at = \Carbon\Carbon::now();
             $member->activeStore()->updateExistingPivot($store->getKey(), compact('last_login_at'));
+            $message[] = sprintf('%s に切り替えました。', $store->name);
         }
-        return redirect()->back();
+        return redirect()->back()->withFlashMessage($message);
     })->name('store_switch');
 
     Route::get('{path}', function ($path) {

@@ -16,6 +16,7 @@ class AdminServiceProvider extends ServiceProvider
         }
 
         $router->middleware('glitter.guest', \Nemooon\Glitter\Application\Middleware\RedirectIfAuthenticated::class);
+        $router->middleware('glitter.admin', \Nemooon\Glitter\Application\Middleware\Admin::class);
     }
 
     protected function mapAdminRoutes()

@@ -100,6 +100,7 @@
         font-size: 0.6875rem;
         font-style: normal;
         text-align: center;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
         @include media-breakpoint-down('sm') {
             height: 1.5rem;
             padding: 0.34375rem 0.3rem;
@@ -107,7 +108,7 @@
         }
     }
 
-    .nofity {
+    .notify {
         float: right;
         height: 1.25rem;
         line-height: 1.25rem;
@@ -119,9 +120,17 @@
             height: 1.5rem;
             line-height: 1.5rem;
         }
+
+        &:after {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: $brand-primary;
+            border-radius: 100%;
+        }
     }
 }
-
 
 .drawer-nav-store {
     flex: 0 0 0%;

@@ -37,6 +37,10 @@ class LoginController extends Controller
         if ($member->active_store) {
             $last_login_at = Carbon::now();
             $member->activeStore()->updateExistingPivot($member->active_store->getKey(), compact('last_login_at'));
+            return redirect()->intended($this->redirectPath())
+                ->withFlashMessage([
+                    sprintf('<strong>おかえりなさい！</strong> %s さん', $member->name),
+                ]);
         } else {
             $this->guard()->logout();
             $request->session()->flush();

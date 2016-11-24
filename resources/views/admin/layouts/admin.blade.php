@@ -20,11 +20,11 @@ window.Laravel = <?php echo json_encode([
 <nav class="header-nav navbar navbar-fixed-top navbar-dark hidden-md-up">
     <a data-toggle="drawer" href="#" class="navbar-brand">
         <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
-        {{ Auth::guard('member')->user()->activeStore->name }}
+        {{ $store->name }}
     </a>
     <ul class="nav navbar-nav float-xs-right">
         <li class="nav-item">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::guard('member')->user()->name }}</a>
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ $me->name }}</a>
             <div class="dropdown-menu dropdown-menu-right">
                 @include('glitter::admin.partials.member-dropdown')
             </div>
@@ -36,8 +36,8 @@ window.Laravel = <?php echo json_encode([
     <div class="drawer-nav-store dropdown hidden-sm-down">
         <a href="#" class="store-menu" data-toggle="dropdown">
             <i class="fa fa-caret-down fa-fw float-xs-right" aria-hidden="true"></i>
-            <span class="store-name">{{ Auth::guard('member')->user()->activeStore->name }}</span><br>
-            <small><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i>{{ Auth::guard('member')->user()->name }}</small>
+            <span class="store-name">{{ $store->name }}</span><br>
+            <small><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i>{{ $me->name }}</small>
         </a>
         <div class="dropdown-menu">
             @include('glitter::admin.partials.member-dropdown')
@@ -46,7 +46,7 @@ window.Laravel = <?php echo json_encode([
     <div class="drawer-nav-content">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link{{ Request::is('admin') ? ' active' : '' }}" href="{{ route('glitter.admin.index') }}"><i class="fa fa-home fa-fw" aria-hidden="true"></i>ホーム</a>
+                <a class="nav-link{{ Request::is('admin') ? ' active' : '' }}" href="{{ route('glitter.admin.index') }}"><i class="fa fa-home fa-fw" aria-hidden="true"></i>ホーム<span class="notify"></span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link{{ Request::is('admin/orders*') ? ' active' : '' }}" href="{{ route('glitter.admin.orders.index') }}"><i class="fa fa-inbox fa-fw" aria-hidden="true"></i>受注管理<span class="badge">9,999</span></a>
@@ -58,10 +58,10 @@ window.Laravel = <?php echo json_encode([
                 <a class="nav-link{{ Request::is('admin/customers*') ? ' active' : '' }}" href="{{ route('glitter.admin.customers.index') }}"><i class="fa fa-users fa-fw" aria-hidden="true"></i>顧客リスト</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#"><i class="fa fa-bar-chart fa-fw" aria-hidden="true"></i>売上分析</a>
+                <a class="nav-link disabled" href="#"><i class="fa fa-bar-chart fa-fw" aria-hidden="true"></i>レポート</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#"><i class="fa fa-scissors fa-fw" aria-hidden="true"></i>値引管理</a>
+                <a class="nav-link disabled" href="#"><i class="fa fa-scissors fa-fw" aria-hidden="true"></i>クーポン</a>
             </li>
         </ul>
         <ul class="nav">
@@ -97,6 +97,7 @@ window.Laravel = <?php echo json_encode([
 </div>{{-- /.nav-wrapper --}}
 @endif
 <div class="content-wrapper">
+{!! join(PHP_EOL, $flash_message->all()) !!}
 @yield('content')
 </div>{{-- /.content-wrapper --}}
 </main>{{-- /.main-section --}}

@@ -14,9 +14,9 @@
 
 @section('content')
 <div class="container ml-0">
-    <div class="row">
+    <div class="row mb-2">
         <div class="col-lg-3">
-            <div class="py-2">
+            <div class="pt-2">
                 <h5>基本設定</h5>
                 <p>なんとかかんとかでこれをそうします。</p>
             </div>
@@ -35,24 +35,23 @@
             </div>
         </div>
     </div>
-    <hr class="my-2">
-    <div class="row">
+    <div class="row mb-2">
         <div class="col-lg-3">
-            <div class="py-2">
-                <h5>設定</h5>
+            <div class="pt-2">
+                <h5>受注設定</h5>
                 <p>なんとかかんとかでこれをそうします。</p>
             </div>
         </div>
         <div class="col-lg-9">
             <div class="area">
                 <div class="form-group">
-                    <label for="profileName">氏名</label>
-                    <input type="text" class="form-control" id="profileName" name="name" value="{{ old('name') }}">
+                    <label for="orderNumberFormat">受注番号フォーマット</label>
+                    <input type="text" class="form-control" id="orderNumberFormat" name="name" value="{{ old('name', '#0000') }}" aria-describedby="orderNumberFormatHelp">
+                    <p id="orderNumberFormatHelp" class="form-text text-muted">
+                        サンプル: <em>#0001</em>, <em>#0012</em>, <em>#0123</em>, <em>#1234</em>, <em>#12345</em>
+                    </p>
                 </div>
-                <div class="form-group">
-                    <label for="profileEmail">メールアドレス</label>
-                    <input type="email" class="form-control" id="profileEmail" name="email" value="{{ old('email') }}">
-                </div>
+                <button type="submit" class="btn btn-primary">受注設定を保存する</button>
             </div>
         </div>
     </div>
